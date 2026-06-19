@@ -1,0 +1,18 @@
+name: WF-X
+on: workflow_dispatch
+jobs:
+  jobx:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Smaple cmd
+      run: |
+        pwd
+        cat /etc/passwd
+        echo "Todays date is $(date)"
+  joby:
+    runs-on: ubuntu-latest
+    steps:
+    - name: running Docker cmd
+      run: |
+         echo "Todays date is $(date)"
+         docker info      
