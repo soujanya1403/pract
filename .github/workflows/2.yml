@@ -1,0 +1,24 @@
+name: Testing env
+on: workflow_dispatch
+env:
+  DB_IP: '10.0.0.56'
+  IMAGE_NAME: myappimage:latest
+jobs:
+  jobx:
+   env:
+     version: '10.5'   
+   runs-on: ubuntu-latest
+   steps:
+   - name: pring ENVS
+     run: |
+        echo "DB_IP is ${{ env.DB_IP }}"
+        echo "IMAGE_NAME is ${{ env.IMAGE_NAME }}"
+        echo "version is ${{ env.version }}"
+  joby:
+    runs-on: ubuntu-slim
+    steps:
+    - name: Joby Pring Envs
+      run: |
+        echo "DB_IP is ${{ env.DB_IP }}"
+        echo "IMAGE_NAME is ${{ env.IMAGE_NAME }}"
+        echo "version is ${{ env.version }}"        
