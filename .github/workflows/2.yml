@@ -6,19 +6,21 @@ env:
 jobs:
   jobx:
    env:
-     version: '10.5'   
+     version: '10.5'  
+     DB_IP: '192.168.0.100'     
    runs-on: ubuntu-latest
    steps:
-   - name: pring ENVS
+   - name: Jobx Step1
+     env:
+       IMAGE_NAME: nginx
+       APPTYPE: IOS
      run: |
         echo "DB_IP is ${{ env.DB_IP }}"
         echo "IMAGE_NAME is ${{ env.IMAGE_NAME }}"
         echo "version is ${{ env.version }}"
-  joby:
-    runs-on: ubuntu-slim
-    steps:
-    - name: Joby Pring Envs
-      run: |
+   - name: Jobx Step2
+     run: |
         echo "DB_IP is ${{ env.DB_IP }}"
         echo "IMAGE_NAME is ${{ env.IMAGE_NAME }}"
-        echo "version is ${{ env.version }}"        
+        echo "version is ${{ env.version }}"
+        
