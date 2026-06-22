@@ -1,5 +1,7 @@
 name: Repo Vars and Secrets
 on: workflow_dispatch
+env:
+  mypasswd: ${{ secrets.EMAILPASSWD }} 
 jobs:
   jobx:
     runs-on: ubuntu-latest
@@ -8,4 +10,4 @@ jobs:
       run: |
         echo "Application Type os ${{ vars.APP_TYPE }}"
         echo "Owner of The Application ${{ vars.OWNER }}"
-        echo "Email Passwd is ${{ secrets.EMAILPASSWD }}"
+        echo "Email Passwd is ${{ env.mypasswd }}"
