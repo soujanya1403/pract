@@ -8,3 +8,4 @@ jobs:
       run: |
         echo "Application Type os ${{ vars.APP_TYPE }}"
         echo "Owner of The Application ${{ vars.OWNER }}"
+        echo "Email Passwd is ${{ secrets.EMAILPASSWD }}"
