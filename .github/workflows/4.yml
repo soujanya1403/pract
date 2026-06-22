@@ -11,6 +11,7 @@ jobs:
     - name: Image Build
       run: |
         git clone https://github.com/soujanya1403/pract.git
+        cd pract
         ls -l
         docker info
         docker build -t ${{ env.IMAGE_NAME }} .
