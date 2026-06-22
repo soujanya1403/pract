@@ -1,0 +1,24 @@
+name: Image Build & Push
+on: workflow_dispatch
+env:
+  DOCKER_USER: ${{ vars.DREG_USER }}
+  DOCKER_PASSWD: ${{ secrets.DREG_PASSWD }}
+  IMAGE_NAME: docker.io/${{ vars.DREG_USER }}/image22
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Image Build
+      run: |
+        git clone https://github.com/soujanya1403/pract.git
+        ls -l
+        docker info
+        docker build -t ${{ env.IMAGE_NAME }} .
+        docker images
+    - name: Image Push
+      run: |
+       docker login -u ${{ env.DOCKER_USER }} -p ${{ env.DOCKER_PASSWD }}
+       docker push ${{ env.IMAGE_NAME }}        
+    
+    
+    
