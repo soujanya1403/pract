@@ -19,7 +19,13 @@ jobs:
     - name: Image Push
       run: |
        docker login -u ${{ env.DOCKER_USER }} -p ${{ env.DOCKER_PASSWD }}
-       docker push ${{ env.IMAGE_NAME }}        
+       docker push ${{ env.IMAGE_NAME }} 
+    - name: Deploy
+      run: |
+         echo "${{ secrets.LINUX_MACHINE_KEY }}"> key1
+         chmod 400 key1
+         ssh -i key1 -o StrictHostKeyChecking=no ${{ vars.OS_USER }}@${{ vars.REMOTO_MACHINE_IP}} docker run -d ${{ env.IMAGE_NAME }} 
+    
     
     
     
