@@ -1,0 +1,26 @@
+name: COPY Files
+on: workflow_dispatch
+jobs:
+  jobx:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download the repo
+      run: |
+        git clone https://github.com/soujanya1403/pract.git
+        pwd
+        cd pract
+        pwd
+        ls -l
+    - name: Copy Files to Remote machine
+      run: |
+         pwd 
+         cd pract
+         echo "${{ secrets.LINUX_MACHINE_KEY }}"> key1
+         chmod 400 key1
+         scp -i key1 -o StrictHostKeyChecking=no Dockerfile ${{ vars.OS_USER }}@${{ vars.REMOTO_MACHINE_IP}}:/tmp
+
+         
+        
+    
+      
+    
