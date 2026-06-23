@@ -3,7 +3,7 @@ on: workflow_dispatch
 env:
   DOCKER_USER: ${{ vars.DREG_USER }}
   DOCKER_PASSWD: ${{ secrets.DREG_PASSWD }}
-  IMAGE_NAME: docker.io/${{ vars.DREG_USER }}/image22
+  IMAGE_NAME: docker.io/${{ vars.DREG_USER }}/image22:v${{ github.run_number }}
 jobs:
   build:
     runs-on: ubuntu-latest
