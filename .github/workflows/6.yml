@@ -21,13 +21,3 @@ jobs:
         context: .
         tags: ghcr.io/soujanya1403/imagex:latest
         push: true        
-
-permission
-PAT
-
-==> $GITHUB_TOKEN
-==> Uses
-==> with 
-       
-
-
