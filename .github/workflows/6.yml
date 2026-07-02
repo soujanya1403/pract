@@ -2,6 +2,9 @@ name: Image Build & Push GHCR
 on: workflow_dispatch
 jobs:
   build:
+    permissions:
+      contents: read
+      packages: write
     runs-on: ubuntu-latest
     steps:
     - name: Checkout 
@@ -19,6 +22,12 @@ jobs:
         tags: ghcr.io/soujanya1403/imagex:latest
         push: true        
 
+permission
+PAT
+
+==> $GITHUB_TOKEN
+==> Uses
+==> with 
        
 
 
